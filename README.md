@@ -15,13 +15,9 @@ Admissions coding task
 
 `insertMany(value[])`
 
-`getAt(index): int|string`
+`get(index): int|string`
 
-`removeAt(index): bool`
-
-`get(value): int|string`
-
-`remove(value): bool`
+`remove(index): bool`
 
 `indexOf(value): int`
 
