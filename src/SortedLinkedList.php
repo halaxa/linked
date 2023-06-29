@@ -7,6 +7,8 @@ namespace Listed;
 /**
  * @internal This class only contains sorted linked list logic.
  *           It's type safety is accomplished by strictly typed wrapper classes.
+ *
+ * @todo Implement internal cursor for optimized insertions and semi sequential reads
  */
 class SortedLinkedList implements \IteratorAggregate
 {
@@ -25,6 +27,8 @@ class SortedLinkedList implements \IteratorAggregate
                 return $value;
             }
         }
+
+        throw new \OutOfBoundsException("Invalid index $index");
     }
 
     public function first(): mixed

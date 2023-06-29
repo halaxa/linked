@@ -6,6 +6,7 @@ namespace ListedTest;
 
 use Listed\IntItem;
 use Listed\SortedLinkedList;
+use OutOfBoundsException;
 use PHPUnit\Framework\TestCase;
 
 class SortedLinkedListTest extends TestCase
@@ -56,10 +57,18 @@ class SortedLinkedListTest extends TestCase
 
     public function testGetThrowsOutOfBoundsOnEmptyList()
     {
+        $this->expectException(OutOfBoundsException::class);
+        (new SortedLinkedList())->get(0);
     }
 
     public function testGetThrowsOutOfBoundsOnNonExistingIndex()
     {
+        $this->expectException(OutOfBoundsException::class);
+
+        $list = new SortedLinkedList();
+
+           $list->insert(new IntItem(3));
+        $list->get(1);
     }
 
     public function testIteratorIsEmptyOnEmptyList()
