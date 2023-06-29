@@ -1,0 +1,33 @@
+{
+    "name": "halaxa/listed",
+    "description": "Admissions coding task",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Filip Halaxa",
+            "email": "filip@halaxa.cz"
+        }
+    ],
+    "scripts": {
+        "tests": "composer update --quiet && vendor/bin/phpunit",
+        "cs-check": "composer update --quiet && vendor/bin/php-cs-fixer fix --dry-run --verbose --allow-risky=yes",
+        "cs-fix": "composer update --quiet && vendor/bin/php-cs-fixer fix --verbose --allow-risky=yes"
+    },
+    "config": {
+        "lock": false,
+        "sort-packages": true
+    },
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {"Listed\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"ListedTest\\": "test/"}
+    }
+}
