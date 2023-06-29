@@ -8,9 +8,6 @@ use Listed\IntItem;
 use Listed\SortedLinkedList;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversNothing
- */
 class SortedLinkedListTest extends TestCase
 {
     public function testCountIncrementsOnInsert()

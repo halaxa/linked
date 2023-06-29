@@ -7,9 +7,6 @@ namespace ListedTest;
 use Listed\IntItem;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversNothing
- */
 class IntItemTest extends TestCase
 {
     public function testValueIsCorrect()
