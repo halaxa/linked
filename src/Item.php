@@ -15,8 +15,4 @@ interface Item
     public function next(): ?Item;
 
     public function prev(): ?Item;
-
-    public function hasNext(): bool;
-
-    public function hasPrev(): bool;
 }

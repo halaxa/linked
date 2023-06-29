@@ -28,16 +28,6 @@ final class IntItem implements Item
         return $this->prev;
     }
 
-    public function hasNext(): bool
-    {
-        return $this->next !== null;
-    }
-
-    public function hasPrev(): bool
-    {
-        return $this->prev !== null;
-    }
-
     public function setNext(?IntItem $item): void
     {
         $this->next = $item;

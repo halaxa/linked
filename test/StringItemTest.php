@@ -21,7 +21,6 @@ class StringItemTest extends TestCase
         $item = new StringItem('val');
 
         $this->assertNull($item->next());
-        $this->assertFalse($item->hasNext());
     }
 
     public function testCorrectlyHandlesNotNullItem()
@@ -30,6 +29,5 @@ class StringItemTest extends TestCase
         $item = new StringItem('val', $nextItem);
 
         $this->assertSame($nextItem, $item->next());
-        $this->assertTrue($item->hasNext());
     }
 }

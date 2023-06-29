@@ -21,7 +21,6 @@ class IntItemTest extends TestCase
         $item = new IntItem(42);
 
         $this->assertNull($item->next());
-        $this->assertFalse($item->hasNext());
     }
 
     public function testCorrectlyHandlesNotNullItem()
@@ -30,6 +29,5 @@ class IntItemTest extends TestCase
         $item = new IntItem(42, $nextItem);
 
         $this->assertSame($nextItem, $item->next());
-        $this->assertTrue($item->hasNext());
     }
 }
