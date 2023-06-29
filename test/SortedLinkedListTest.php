@@ -32,13 +32,34 @@ class SortedLinkedListTest extends TestCase
     {
         $list = new SortedLinkedList();
 
+        $list->insert(new IntItem(3));
         $list->insert(new IntItem(1));
         $list->insert(new IntItem(2));
-        $list->insert(new IntItem(3));
 
-        $this->assertSame([1,2,3], iterator_to_array($list));
+        $this->assertSame([3, 1, 2], iterator_to_array($list));
 
         $this->markTestIncomplete();
+    }
+
+    public function testGetReturnsCorrectItem()
+    {
+        $list = new SortedLinkedList();
+
+        $list->insert(new IntItem(3));
+        $list->insert(new IntItem(1));
+        $list->insert(new IntItem(2));
+
+        $this->assertSame(1, $list->get(1));
+        $this->assertSame(2, $list->get(2));
+        $this->assertSame(3, $list->get(0));
+    }
+
+    public function testGetThrowsOutOfBoundsOnEmptyList()
+    {
+    }
+
+    public function testGetThrowsOutOfBoundsOnNonExistingIndex()
+    {
     }
 
     public function testIteratorIsEmptyOnEmptyList()

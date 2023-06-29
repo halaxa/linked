@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Listed;
 
-
 /**
  * @internal This class only contains sorted linked list logic.
  *           It's type safety is accomplished by strictly typed wrapper classes.
@@ -17,13 +16,15 @@ class SortedLinkedList implements \IteratorAggregate
 
     private int $count = 0;
 
-    private ?int $cursorIndex;
-
-    private Item $cursorValue;
-
-    public function get()
+    public function get(int $index): mixed
     {
+        assert($index >= 0);
 
+        foreach ($this as $i => $value) {
+            if ($i === $index) {
+                return $value;
+            }
+        }
     }
 
     public function first(): mixed
@@ -40,11 +41,11 @@ class SortedLinkedList implements \IteratorAggregate
     {
         if ( ! $this->first) {
             $this->first = $item;
-            $this->last = $item;
         } else {
             $this->last->setNext($item);
-            $this->last = $item;
         }
+
+        $this->last = $item;
 
         ++$this->count;
     }
