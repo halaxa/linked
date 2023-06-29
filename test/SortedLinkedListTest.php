@@ -6,6 +6,8 @@ namespace ListedTest;
 
 use Listed\IntItem;
 use Listed\SortedLinkedList;
+use Listed\SortedLinkedListInt;
+use Listed\SortedLinkedListString;
 use PHPUnit\Framework\TestCase;
 
 class SortedLinkedListTest extends TestCase
@@ -86,5 +88,54 @@ class SortedLinkedListTest extends TestCase
 
         $this->assertSame(1, $list->first());
         $this->assertSame(3, $list->last());
+    }
+
+    /**
+     * @dataProvider wrappers
+     *
+     * @param mixed[] $scalarItems
+     *
+     * @return void
+     */
+    public function testWrappersE2E(SortedLinkedListInt|SortedLinkedListString $typedList, array $scalarItems)
+    {
+        $this->assertCount(0, $typedList);
+
+        $typedList->insert($scalarItems[2]);
+        $typedList->insert($scalarItems[0]);
+        $typedList->insert($scalarItems[1]);
+
+        $this->assertCount(3, $typedList);
+
+        $this->assertSame($scalarItems[0], $typedList->get(0));
+        $this->assertSame($scalarItems[1], $typedList->get(1));
+        $this->assertSame($scalarItems[2], $typedList->get(2));
+
+        $this->assertSame($scalarItems[0], $typedList->first());
+        $this->assertSame($scalarItems[2], $typedList->last());
+
+        $this->assertInstanceOf(\Iterator::class, $typedList->getIterator());
+    }
+
+    public function wrappers()
+    {
+        return [
+            [
+                new SortedLinkedListString(),
+                [
+                    'a',
+                    'b',
+                    'c',
+                ],
+            ],
+            [
+                new SortedLinkedListInt(),
+                [
+                    1,
+                    2,
+                    3,
+                ],
+            ],
+        ];
     }
 }

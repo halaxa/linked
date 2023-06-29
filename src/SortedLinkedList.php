@@ -10,6 +10,7 @@ namespace Listed;
  *
  * @todo Implement internal cursor for optimized insertions and semi sequential reads
  * @todo Implement LAZY/EAGER sort switch
+ * @todo Implement custom compare function
  */
 class SortedLinkedList implements \IteratorAggregate
 {
