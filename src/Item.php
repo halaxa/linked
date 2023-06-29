@@ -6,6 +6,7 @@ namespace Listed;
 
 /**
  * @method setNext(Item $item): void;
+ * @method setPrev(Item $item): void;
  */
 interface Item
 {
